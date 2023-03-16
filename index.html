@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project B</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <article>
+        <section id="above_fold" class="parallax">
+            <p id="above_fold__description">El Salvador Real Estate Tokenization</p>
+            <h1 id="above_fold__title">Project B</h1>
+            <img id="above_fold__image" class="bg" src="assets/oswaldo-martinez-bK-SRSgPWz8-unsplash.jpg" alt="">
+        </section>
+        <section>
+            <h2>Partners</h2>
+        </section>
+        <section>
+            <h2>Team</h2>
+            <div class="carousel-wrapper">
+                <ul class="carousel">
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                    <li class="carousel__item">
+                        <img src="assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg" alt="">
+                        <p>Jane Doe</p>
+                    </li>
+                </ul>
+                <div class="carousel__button-wrapper flex gap-0-3 align-items-center hide-on-small">
+                    <button class="carousel__button" data-direction="backwards" onclick="scrollCarousel(event)">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                            width="24px" fill="#000000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                        </svg>
+                    </button>
+                    <button class="carousel__button" onclick="scrollCarousel(event)">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                            width="24px" fill="#000000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </article>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let getRatio = el => window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+        gsap.utils.toArray(".parallax").forEach((section, i) => {
+            section.bg = section.querySelector(".bg");
+
+            // the first image (i === 0) should be handled differently because it should start at the very top.
+            // use function-based values in order to keep things responsive
+            gsap.fromTo(section.bg, {
+                y: () => i ? `${-window.innerHeight * getRatio(section)}px` : "0px"
+            }, {
+                y: () => `${window.innerHeight * (1 - getRatio(section))}px`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: () => i ? "top bottom" : "top top",
+                    end: "bottom top",
+                    scrub: true,
+                    invalidateOnRefresh: true // to make it responsive
+                }
+            });
+
+        });
+        function scrollCarousel(e) {
+            const direction = e.target.closest('button').dataset.direction;
+            const carousel = e.target.closest('.carousel-wrapper').querySelector('.carousel');
+            const carouselWidth = carousel.offsetWidth;
+            const moveBy = carouselWidth / 2;
+            if (direction === 'backwards') {
+                carousel.scrollBy({
+                    left: -moveBy,
+                    behavior: 'smooth'
+                })
+            } else {
+                carousel.scrollBy({
+                    left: moveBy,
+                    behavior: 'smooth'
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
