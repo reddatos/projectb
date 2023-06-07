@@ -151,7 +151,7 @@ header {
 section {
   display: grid;
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   align-content: center;
   &:nth-of-type(2) {
     img {
@@ -181,13 +181,13 @@ section {
 }
 #poc_images {
   display: grid;
-  gap: 1rem;
+  gap: 1vw;
   grid-template-columns: repeat(4, 1fr);
   .span-2 {
     grid-column: span 2;
   }
   img {
-    height: 18rem;
+    height: 24vw;
     object-fit: cover;
     border-radius: 0.5rem;
   }
@@ -206,7 +206,7 @@ section {
     gap: 0.5rem;
     flex: 1;
     &__number {
-      font-size: 2rem;
+      font-size: max(1.5rem, 2.5vw);
       font-weight: 700;
     }
     &__title {
@@ -218,7 +218,7 @@ section {
 #team_members {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(max(8rem, 12vw), 1fr));
-  margin-top: 5rem;
+  margin-top: 3rem;
   gap: 3rem 1.5rem;
 }
 .team-member {
