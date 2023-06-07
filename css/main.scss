@@ -12,7 +12,6 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 body {
   --accent-color: #3d5afe;
@@ -110,11 +109,7 @@ img {
 }
 
 article {
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y proximity;
   & > * {
-    scroll-snap-align: start;
     padding: max(1rem, 2vw) var(--inline-padding);
   }
 }
@@ -184,7 +179,19 @@ section {
     line-height: 0.5;
   }
 }
-
+#poc_images {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  .span-2 {
+    grid-column: span 2;
+  }
+  img {
+    height: 18rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}
 #poc_stats {
   list-style: none;
   display: flex;
@@ -210,7 +217,7 @@ section {
 
 #team_members {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(max(8rem, 12vw), 1fr));
   margin-top: 5rem;
   gap: 3rem 1.5rem;
 }

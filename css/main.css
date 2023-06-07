@@ -13,7 +13,6 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -133,13 +132,7 @@ img {
   gap: 4rem;
 }
 
-article {
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y proximity;
-}
 article > * {
-  scroll-snap-align: start;
   padding: max(1rem, 2vw) var(--inline-padding);
 }
 
@@ -214,6 +207,21 @@ section:nth-of-type(3) p {
   line-height: 0.5;
 }
 
+#poc_images {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+#poc_images .span-2 {
+  grid-column: span 2;
+}
+#poc_images img {
+  height: 18rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
 #poc_stats {
   list-style: none;
   display: flex;
@@ -239,7 +247,7 @@ section:nth-of-type(3) p {
 
 #team_members {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(max(8rem, 12vw), 1fr));
   margin-top: 5rem;
   gap: 3rem 1.5rem;
 }
