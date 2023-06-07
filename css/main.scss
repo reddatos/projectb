@@ -154,14 +154,7 @@ section {
   min-height: 90vh;
   align-content: center;
   &:nth-of-type(2) {
-    img {
-      position: absolute;
-      opacity: 0.5;
-      height: 80vh;
-      width: auto;
-      align-self: center;
-      right: 0;
-    }
+    overflow: hidden;
   }
   &:nth-of-type(3) {
     text-align: center;
@@ -179,6 +172,14 @@ section {
     line-height: 0.5;
   }
 }
+#bitcoin_lineart {
+  position: absolute;
+  opacity: 0.2;
+  height: 80vh;
+  width: auto;
+  align-self: center;
+  right: 0;
+}
 #poc_images {
   display: grid;
   gap: 1vw;
@@ -190,6 +191,11 @@ section {
     height: 24vw;
     object-fit: cover;
     border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(1);
+    }
   }
 }
 #poc_stats {
@@ -252,6 +258,10 @@ section {
 @media screen and (min-width: 768px) {
   body {
     --inline-padding: max(1rem, 12vw);
+  }
+  #bitcoin_lineart {
+    opacity: 0.6;
+    left: calc(100% - 50vw);
   }
   .hide-on-large {
     display: none !important;
