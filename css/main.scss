@@ -119,11 +119,22 @@ article {
   }
 }
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   background-color: rgba(var(--foreground-color), 0.5);
   z-index: 2;
   backdrop-filter: blur(1rem);
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 0.8rem;
+    .icon {
+      display: flex;
+    }
+  }
 }
 #above_fold {
   padding-top: 0;
