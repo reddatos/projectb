@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/uhtml@3.0.1/es.js"></script>
 </head>
 
 <body>
@@ -17,6 +18,88 @@
         <header>
             <h4>Project B</h4>
             <ul>
+                <li>
+                    <a href="#" target="_blank">
+                        Services
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        News
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <section id="above_fold" class="gap-4">
+            <img id="hero_illustration" src="assets/cityscape.svg" alt="">
+            <div class="grid gap-0-5">
+                <h2>Real estate tokenization through the power of Blockchain technology.</h2>
+                <p>A global reference of tokenization aiming financial inclusiveness</p>
+            </div>
+        </section>
+        <section id="payment_section" class="gap-1-5">
+            <div class="grid">
+                <h4>International Payments</h4>
+                <h2>Pay with Bitcoin</h2>
+            </div>
+            <p>
+                Explore the world with seamless property rentals,
+                powered by Bitcoin payments from anywhere on the globe!
+            </p>
+            <img id="bitcoin_lineart" src="assets/bitcoin line art.svg" alt="">
+        </section>
+        <section>
+            <div class="grid">
+                <h4>Why</h4>
+                <h2>El Salvador?</h2>
+            </div>
+        </section>
+        <section class="gap-2">
+            <h4 class="section-header">Proof of Concept</h4>
+            <p>
+                A tokenized room at El Zonte beach, El Salvador
+            </p>
+            <div id="poc_images">
+                <img src="assets/poc/poc3.jpg" class="span-2" alt="">
+                <img src="assets/poc/poc1.jpg" class="span-2" alt="">
+                <img src="assets/poc/poc6.jpg" alt="">
+                <img src="assets/poc/poc2.jpg" class="span-2" alt="">
+                <img src="assets/poc/poc5.jpg" alt="">
+            </div>
+            <ul id="poc_stats">
+                <li class="stat">
+                    <div class="stat__number">1030</div>
+                    <div class="stat__title">Nights invested</div>
+                </li>
+                <li class="stat">
+                    <div class="stat__number">20</div>
+                    <div class="stat__title">Nights consumed</div>
+                </li>
+                <li class="stat">
+                    <div class="stat__number">4</div>
+                    <div class="stat__title">Invested nights consumed</div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4 class="section-header">Team</h4>
+            <ul id="team_members"></ul>
+            <dialog id="member_details">
+                <img src="" alt="" id="member_image">
+                <h2 id="member_name">Sairaj Mote</h2>
+                <p id="member_title">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam voluptatum aliquam unde dignissimos
+                    hic non quae dolores quibusdam illo excepturi dolore repellat asperiores, nihil vel libero
+                    architecto veniam et dicta?
+                </p>
+            </dialog>
+        </section>
+        <section>
+            <h4 class="section-header">Partners</h4>
+        </section>
+        <section>
+            <h4 class="section-header">Get in Touch</h4>
+            <ul id="social_links">
                 <li>
                     <a href="https://twitter.com/ProjectBSV" target="_blank">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 248 204">
@@ -46,58 +129,10 @@
                     </a>
                 </li>
             </ul>
-        </header>
-        <section id="above_fold" class="gap-4">
-            <img id="hero_illustration" src="assets/cityscape.svg" alt="">
-            <div class="grid gap-0-5">
-                <h2>Real estate tokenization through the power of Blockchain technology.</h2>
-                <p>A global reference of tokenization aiming financial inclusiveness</p>
-            </div>
-        </section>
-        <section id="payment_section" class="gap-1-5">
-            <div class="grid">
-                <h4>International Payments</h4>
-                <h2>Pay with Bitcoin</h2>
-            </div>
-            <p>
-                Explore the world with seamless property rentals,
-                powered by Bitcoin payments from anywhere on the globe!
-            </p>
-            <img id="bitcoin_lineart" src="assets/bitcoin line art.svg" alt="">
-        </section>
-        <section class="gap-2">
-            <h4 class="section-header">Proof of Concept</h4>
-            <p>
-                A tokenized room at El Zonte beach, El Salvador
-            </p>
-            <div id="poc_images">
-                <img src="assets/poc/poc3.jpg" class="span-2" alt="">
-                <img src="assets/poc/poc1.jpg" class="span-2" alt="">
-                <img src="assets/poc/poc6.jpg" alt="">
-                <img src="assets/poc/poc2.jpg" class="span-2" alt="">
-                <img src="assets/poc/poc5.jpg" alt="">
-            </div>
-            <ul id="poc_stats">
-                <li class="stat">
-                    <div class="stat__number">1030</div>
-                    <div class="stat__title">Stays invested</div>
-                </li>
-                <li class="stat">
-                    <div class="stat__number">20</div>
-                    <div class="stat__title">Stays consumed</div>
-                </li>
-                <li class="stat">
-                    <div class="stat__number">4</div>
-                    <div class="stat__title">Invested stays consumed</div>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h4 class="section-header">Team</h4>
-            <ul id="team_members"></ul>
         </section>
     </article>
     <script>
+        const { html, render: renderElem } = uhtml;
         const teamMembers = [
             {
                 name: 'Carlos Javier Castellanos Flores',
@@ -139,6 +174,9 @@
                     <p class="team-member__title">${title}</p>
                 `
                 teamMembersList.appendChild(memberItem)
+            })
+            document.getElementById('team_members').addEventListener('click', e => {
+
             })
         }
     </script>
