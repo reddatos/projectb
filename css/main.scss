@@ -139,6 +139,7 @@ article {
     gap: 0.8rem;
     a {
       font-weight: 500;
+      font-size: 0.9rem;
       &::after {
         content: "";
         display: block;
@@ -212,12 +213,12 @@ section {
 #poc_images {
   display: grid;
   gap: 1vw;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   .span-2 {
     grid-column: span 2;
   }
   img {
-    height: 24vw;
+    height: 24vmax;
     object-fit: cover;
     border-radius: 0.5rem;
     transition: all 0.2s ease;
@@ -322,6 +323,13 @@ section {
 }
 
 @media screen and (max-width: 768px) {
+  #poc_images {
+    img {
+      &:nth-of-type(5) {
+        grid-area: 3/2/4/3;
+      }
+    }
+  }
   .hide-on-small {
     display: none !important;
   }
@@ -333,6 +341,9 @@ section {
   #bitcoin_lineart {
     opacity: 0.6;
     left: calc(100% - 50vw);
+  }
+  #poc_images {
+    grid-template-columns: repeat(4, 1fr);
   }
   .hide-on-large {
     display: none !important;

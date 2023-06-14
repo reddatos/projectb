@@ -168,6 +168,7 @@ article > * {
 }
 #main_header ul a {
   font-weight: 500;
+  font-size: 0.9rem;
 }
 #main_header ul a::after {
   content: "";
@@ -242,13 +243,13 @@ section:nth-of-type(4) p {
 #poc_images {
   display: grid;
   gap: 1vw;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
 }
 #poc_images .span-2 {
   grid-column: span 2;
 }
 #poc_images img {
-  height: 24vw;
+  height: 24vmax;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.5rem;
@@ -370,6 +371,9 @@ section:nth-of-type(4) p {
   }
 }
 @media screen and (max-width: 768px) {
+  #poc_images img:nth-of-type(5) {
+    grid-area: 3/2/4/3;
+  }
   .hide-on-small {
     display: none !important;
   }
@@ -381,6 +385,9 @@ section:nth-of-type(4) p {
   #bitcoin_lineart {
     opacity: 0.6;
     left: calc(100% - 50vw);
+  }
+  #poc_images {
+    grid-template-columns: repeat(4, 1fr);
   }
   .hide-on-large {
     display: none !important;

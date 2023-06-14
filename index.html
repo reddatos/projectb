@@ -206,17 +206,17 @@
         router.addRoute('', () => {
             const teamMembersList = document.getElementById('team_members')
             teamMembers.sort((a, b) => a.name.localeCompare(b.name))
-            teamMembers.forEach(member => {
+            const renderedTeamMembers = teamMembers.map(member => {
                 const { image, name, title } = member
-                const memberItem = document.createElement('li')
-                memberItem.classList.add('team-member')
-                memberItem.innerHTML = `
-                <img src="${image}" alt="${name} profile picture" loading="lazy">
-                <p class="team-member__name">${name},</p>
-                <p class="team-member__title">${title}</p>
+                return html`
+                <li class="team-member">
+                    <img src="${image}" alt=${`${name} profile picture`} loading="lazy">
+                    <p class="team-member__name">${name},</p>
+                    <p class="team-member__title">${title}</p>
+                </li>
                 `
-                teamMembersList.appendChild(memberItem)
             })
+            renderElem(teamMembersList, html`${renderedTeamMembers}`)
             document.getElementById('team_members').addEventListener('click', e => {
 
             })
