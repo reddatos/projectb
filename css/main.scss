@@ -63,6 +63,9 @@ h4 {
 img {
   object-fit: contain;
 }
+ul {
+  list-style: none;
+}
 .icon {
   width: 1.2rem;
   height: 1.2rem;
@@ -109,38 +112,46 @@ img {
 }
 
 article {
+  padding-top: 4rem;
   & > * {
     padding: max(1rem, 2vw) var(--inline-padding);
   }
 }
-header {
+#main_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   background-color: rgba(var(--foreground-color), 0.5);
   z-index: 2;
   backdrop-filter: blur(1rem);
+  padding: max(1rem, 2vw) var(--inline-padding);
+  a {
+    color: rgba(var(--text-color), 0.9);
+    text-decoration: none;
+  }
   ul {
     list-style: none;
     display: flex;
     gap: 0.8rem;
     a {
       font-weight: 500;
-      color: rgba(var(--text-color), 0.9);
-      text-decoration: none;
       &::after {
         content: "";
         display: block;
         width: 0;
-        height: 2px;
+        height: 0.15rem;
         background: var(--accent-color);
         transition: width 0.3s;
+        margin: auto;
       }
+      &.active,
       &:hover {
         &::after {
-          width: 100%;
+          width: 1rem;
         }
       }
     }
@@ -267,6 +278,48 @@ section {
     font-size: 0.9rem;
   }
 }
+#news_list {
+  display: grid;
+  gap: 0.5rem;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: " icon ." "icon ." "icon ." "icon .";
+  gap: 0.5rem 1rem;
+  border: solid thin rgba(var(--text-color), 0.5);
+  border-radius: 0.5rem;
+  padding: max(1rem, 2vw);
+  text-decoration: none;
+  color: rgba(var(--text-color), 0.9);
+  animation: slide-up 0.5s ease var(--delay) forwards;
+  opacity: 0;
+  &__icon {
+    grid-area: icon;
+    .icon {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+  &__date {
+    background-color: rgba(var(--text-color), 0.1);
+    margin-right: auto;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @media screen and (max-width: 768px) {
   .hide-on-small {
@@ -284,4 +337,8 @@ section {
   .hide-on-large {
     display: none !important;
   }
+}
+
+.hidden {
+  display: none;
 }
