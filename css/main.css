@@ -240,6 +240,21 @@ section:nth-of-type(4) p {
   right: 0;
 }
 
+#el_salvador_section {
+  position: relative;
+  overflow: hidden;
+}
+
+#el_salvador_map {
+  position: absolute;
+  opacity: 0.1;
+  top: 0;
+  width: max(100vh, 90vw);
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #poc_images {
   display: grid;
   gap: 1vw;
@@ -253,7 +268,7 @@ section:nth-of-type(4) p {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.5rem;
-  transition: all 0.2s ease;
+  transition: filter 0.2s ease;
   filter: brightness(0.8);
 }
 #poc_images img:hover {
