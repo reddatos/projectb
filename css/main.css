@@ -331,6 +331,7 @@ section:nth-of-type(4) p {
 
 #partners {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: auto;
   margin-top: 3rem;
@@ -342,6 +343,7 @@ section:nth-of-type(4) p {
   text-align: center;
   align-items: center;
   padding: 1rem;
+  flex: 1;
 }
 #partners li .icon {
   width: 2rem;
