@@ -39,9 +39,9 @@ body[data-theme="dark"] {
 p,
 strong {
   font-size: 0.9rem;
-  max-width: 65ch;
+  max-width: 70ch;
   line-height: 1.7;
-  color: rgba(var(--text-color), 0.9);
+  color: rgba(var(--text-color), 0.8);
 }
 img {
   width: 100%;
@@ -151,8 +151,7 @@ article {
         transition: width 0.3s;
         margin: auto;
       }
-      &.active,
-      &:hover {
+      &.active {
         &::after {
           width: 1rem;
         }
@@ -220,7 +219,7 @@ section {
 }
 #el_salvador_map {
   position: absolute;
-  opacity: 0.1;
+  opacity: 0.06;
   top: 0;
   width: max(100vh, 90vw);
   height: auto;
@@ -394,7 +393,6 @@ section {
 #news_list {
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   li {
     container: news-item / inline-size;
   }
@@ -474,6 +472,17 @@ section {
   }
 }
 
+@media screen and (any-hover: hover) {
+  #main_header {
+    ul {
+      a:hover {
+        &::after {
+          width: 1rem;
+        }
+      }
+    }
+  }
+}
 .hidden {
   display: none;
 }
