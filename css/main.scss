@@ -317,7 +317,8 @@ section {
   flex-wrap: wrap;
   gap: 1rem;
   margin: auto;
-  li {
+  a,
+  li:not(li:has(a)) {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
