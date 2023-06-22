@@ -32,6 +32,40 @@
         </ul>
     </header>
     <article id="home" class="page">
+        <!-- <section class="">
+            <h2>Milestones</h2>
+            <div id="milestones_wrapper" class="carousel">
+                <div class="milestone">
+                    <div class="milestone__label">5th April 2023</div>
+                    <h3 class="milestone__title">Tokenroom pilot project launched</h3>
+                    <div class="milestone__description">
+                        <p>
+                            Tokenization is the process of converting rights to an asset into a digital token on a
+                            blockchain.
+                        </p>
+                        <p>
+                            The token represents the rights to the asset and can be traded on a secondary market.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls flex gap-0-3">
+                <button class="carousel-control" onclick="scrollCarousel('milestones_wrapper', 'left')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="carousel-control" onclick="scrollCarousel('milestones_wrapper', 'right')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
+            </div>
+        </section> -->
         <section id="above_fold" class="gap-4">
             <img id="hero_illustration" src="assets/svg/cityscape.svg" alt="">
             <div class="grid gap-0-5">
@@ -86,11 +120,21 @@
                     A tokenized room at El Zonte beach, El Salvador
                 </p>
                 <div id="poc_images">
-                    <img src="assets/poc/poc3.jpg" class="span-2" alt="">
-                    <img src="assets/poc/poc1.jpg" class="span-2" alt="">
-                    <img src="assets/poc/poc6.jpg" alt="">
-                    <img src="assets/poc/poc2.jpg" class="span-2" alt="">
-                    <img src="assets/poc/poc5.jpg" alt="">
+                    <div class="poc-wrapper span-2">
+                        <img src="assets/poc/poc3.jpg" alt="">
+                    </div>
+                    <div class="poc-wrapper span-2">
+                        <img src="assets/poc/poc1.jpg" alt="">
+                    </div>
+                    <div class="poc-wrapper">
+                        <img src="assets/poc/poc6.jpg" alt="">
+                    </div>
+                    <div class="poc-wrapper span-2">
+                        <img src="assets/poc/poc2.jpg" alt="">
+                    </div>
+                    <div class="poc-wrapper">
+                        <img src="assets/poc/poc5.jpg" alt="">
+                    </div>
                 </div>
                 <ul id="poc_stats">
                     <li class="stat">
@@ -110,31 +154,25 @@
             </div>
         </section>
         <section>
-            <h4 class="section-header">
+            <h2>
                 Methodology
-            </h4>
-            <div class="grid gap-1 justify-content-center text-center">
-                <p>
-                    The process involves identifying a token project and creating an initial white paper. The economic
-                    system is designed to ensure the token gains valuation through regular operations without relying
-                    solely
-                    on consistent investments.
-                </p>
-                <p>
-                    A core group of individuals knowledgeable in business and technology is
-                    formed. A small pilot is conducted to test the technology and address financial issues.
-                    Regulatory
-                    infrastructure and permissions are established. Market proof of concept is created to attract more
-                    participants over time.
-                </p>
-                <p>
-                    Once the proof of concept is successful, the initial token system is upgraded to
-                    a larger system with bigger investors.
-                </p>
-                <p>
-                    Finally, as the token gains critical mass and becomes
-                    self-sufficient, the core management is decentralized.
-                </p>
+            </h2>
+            <div id="methodology_wrapper" class="carousel"> </div>
+            <div class="carousel-controls flex gap-0-3">
+                <button class="carousel-control" onclick="scrollCarousel('methodology_wrapper', 'left')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="carousel-control" onclick="scrollCarousel('methodology_wrapper', 'right')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
             </div>
         </section>
         <section>
@@ -504,13 +542,8 @@
         }
         const router = new Router({
             routingStart(state) {
-                if ("scrollRestoration" in history) {
-                    history.scrollRestoration = "manual";
-                }
-                window.scrollTo(0, 0);
             },
             routingEnd(state) {
-                console.log(state)
                 const pages = document.querySelectorAll('.page')
                 pages.forEach(page => {
                     if (page.id === (state.page === '' ? 'home' : state.page)) {
@@ -533,14 +566,63 @@
                     <img src="${image}" alt=${`${name} profile picture`} loading="lazy">
                     <p class="team-member__name">${name},</p>
                     <p class="team-member__title">${title}</p>
-                </li>
-                `
+                    </li>
+                    `
             })
             renderElem(teamMembersList, html`${renderedTeamMembers}`)
             document.getElementById('team_members').addEventListener('click', e => {
 
             })
+            const renderedMethodology = methodology.map((step, index) => {
+                const { title, content } = step
+                return html`
+                    <div class="milestone">
+                        <div class="milestone__label">${index + 1}</div>
+                        <h3 class="milestone__title">${title}</h3>
+                        <p class="milestone__description">${content}</p>
+                    </div>
+                `
+            })
+            renderElem(document.getElementById('methodology_wrapper'), html`${renderedMethodology}`)
         })
+        const methodology = [
+            {
+                title: `Identify a token project`,
+                content: `The first step is to identify a problem or need that can be solved with a token. This could be anything from providing access to a new market to simplifying the process of managing assets.`,
+            },
+            {
+                title: 'Create the initial white paper',
+                content: ` The white paper is a document that describes the token project in detail. It should include information about the problem or need that the token is trying to solve, the economic system of the token, and the team behind the project.`,
+            },
+            {
+                title: 'Design the economic system',
+                content: `The economic system of the token is important because it determines how the token will gain value. The system should be designed in a way that incentivize people to hold and use the token.`,
+            },
+            {
+                title: 'Form a core group of people',
+                content: `The core group of people should be experts in the areas of business, technology, and law. They will be responsible for developing the token project and ensuring that it is successful.`,
+            },
+            {
+                title: 'Create a very small pilot',
+                content: `The pilot project is a small-scale test of the token project. This is a good way to test the technology and financial issues before launching the full project.`,
+            },
+            {
+                title: 'Create regulatory infrastructure and permissions',
+                content: `Depending on the jurisdiction, there may be regulatory requirements that need to be met before launching a token project. It is important to research these requirements and obtain the necessary permissions.`,
+            },
+            {
+                title: 'Create market proof of concept',
+                content: `The market proof of concept is a demonstration that there is demand for the token project. This can be done by creating a community of users and generating interest in the project.`,
+            },
+            {
+                title: 'Roll over the initial token system into a grander token system with bigger investors',
+                content: `Once the market proof of concept is established, the initial token system can be rolled over into a grander token system with bigger investors. This will allow the project to raise the capital it needs to grow.`,
+            },
+            {
+                title: 'Decentralize the core management after the token gains critical mass and self-sufficiency',
+                content: `Once the token project has gained critical mass and is self-sufficient, the core management can be decentralized. This will allow the project to continue to grow and evolve without the need for centralized control.`,
+            }
+        ]
 
         const teamMembers = [
             {
@@ -652,6 +734,18 @@
             document.body.classList.remove('hidden')
             router.routeTo(window.location.hash)
         }
+
+        function scrollCarousel(containerId, direction) {
+            direction = direction === 'left' ? -1 : 1
+            const container = document.getElementById(containerId)
+            const containerWidth = container.offsetWidth / 2
+            const scrollAmount = containerWidth * direction
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            })
+        }
+
     </script>
 </body>
 
