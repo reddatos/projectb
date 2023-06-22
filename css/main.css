@@ -304,9 +304,10 @@ section:nth-of-type(4) p {
 }
 
 #economics_section ul {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  -moz-columns: 3 16rem;
+       columns: 3 16rem;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 #economics_section li {
   display: grid;
@@ -317,6 +318,10 @@ section:nth-of-type(4) p {
   border-radius: 0.5rem;
   padding: max(1rem, 2vw);
   text-align: center;
+  page-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  margin-bottom: 0.5rem;
 }
 
 #team_members {
@@ -354,6 +359,7 @@ section:nth-of-type(4) p {
   flex-wrap: wrap;
   gap: 1rem;
   margin: auto;
+  justify-content: space-evenly;
 }
 #partners a,
 #partners li:not(li:has(a)) {
@@ -363,7 +369,6 @@ section:nth-of-type(4) p {
   text-align: center;
   align-items: center;
   padding: 1rem;
-  flex: 1;
   text-decoration: none;
 }
 #partners a .icon,
@@ -409,9 +414,10 @@ section:nth-of-type(4) p {
 }
 
 #services ul {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  -moz-columns: 4 16rem;
+       columns: 4 16rem;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 #services li {
   display: grid;
@@ -426,6 +432,10 @@ section:nth-of-type(4) p {
   -webkit-animation: slide-up 0.5s ease var(--delay) forwards;
           animation: slide-up 0.5s ease var(--delay) forwards;
   opacity: 0;
+  margin-bottom: 0.5rem;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 #news_list {

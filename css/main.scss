@@ -268,9 +268,8 @@ section {
 }
 #economics_section {
   ul {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    columns: 3 16rem;
+    column-gap: 0.5rem;
   }
   li {
     display: grid;
@@ -281,6 +280,9 @@ section {
     border-radius: 0.5rem;
     padding: max(1rem, 2vw);
     text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -317,6 +319,7 @@ section {
   flex-wrap: wrap;
   gap: 1rem;
   margin: auto;
+  justify-content: space-evenly;
   a,
   li:not(li:has(a)) {
     display: flex;
@@ -325,7 +328,6 @@ section {
     text-align: center;
     align-items: center;
     padding: 1rem;
-    flex: 1;
     text-decoration: none;
     .icon {
       width: 2rem;
@@ -374,9 +376,8 @@ section {
 
 #services {
   ul {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    columns: 4 16rem;
+    column-gap: 0.5rem;
   }
   li {
     display: grid;
@@ -390,6 +391,9 @@ section {
     align-items: flex-end;
     animation: slide-up 0.5s ease var(--delay) forwards;
     opacity: 0;
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 #news_list {
