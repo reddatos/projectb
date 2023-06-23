@@ -703,6 +703,17 @@ section:nth-of-type(2) {
   }
 }
 @media screen and (any-hover: hover) {
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--text-color), 0.3);
+    border-radius: 1rem;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--text-color), 0.5);
+  }
   #main_header ul a:hover::after {
     width: 1rem;
   }
