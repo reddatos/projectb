@@ -539,20 +539,22 @@ section {
     column-gap: 0.5rem;
   }
   li {
-    display: grid;
-    aspect-ratio: 1/1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     padding: max(1rem, 2vw);
     border: solid thin rgba(var(--text-color), 0.2);
     border-radius: 0.5rem;
-    text-align: center;
     font-weight: 500;
-    align-content: flex-end;
-    align-items: flex-end;
     animation: slide-up 0.5s ease var(--delay) forwards;
     opacity: 0;
     margin-bottom: 0.5rem;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+  .icon {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 #news_list {
