@@ -24,11 +24,11 @@
                     Services
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#/news">
                     News
                 </a>
-            </li>
+            </li> -->
         </ul>
     </header>
     <article id="home" class="page">
@@ -240,16 +240,39 @@
                                 <div class="stat__title">Invested nights consumed</div>
                             </li>
                         </ul>
-                        <a href="#/tokenroom" class="project__link">Learn more</a>
+                        <button href="#/tokenroom" class="project__button" onclick="toggleDetails(event)">Show
+                            details</button>
+                    </div>
+                    <div class="project__hidden-details grid hidden">
+                        <h4>Milestones</h4>
+                        <ul id="tokenroom_milestones_wrapper" class="carousel"> </ul>
+                        <div class="carousel-controls flex gap-0-3">
+                            <button class="carousel-control"
+                                onclick="scrollCarousel('tokenroom_milestones_wrapper', 'left')">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                                    width="24px" fill="#000000">
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                </svg>
+                            </button>
+                            <button class="carousel-control"
+                                onclick="scrollCarousel('tokenroom_milestones_wrapper', 'right')">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                                    width="24px" fill="#000000">
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
+        <section id="methodology_section">
             <h2>
                 Methodology
             </h2>
-            <div id="methodology_wrapper" class="carousel"> </div>
+            <ul id="methodology_wrapper" class="carousel"> </ul>
             <div class="carousel-controls flex gap-0-3">
                 <button class="carousel-control" onclick="scrollCarousel('methodology_wrapper', 'left')">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
@@ -654,6 +677,17 @@
             }
         })
         router.addRoute('', () => {
+            const renderedTokenroomMilestones = tokenroomMilestones.map((milestone, index) => {
+                const { label, title } = milestone
+                return html`
+                    <li class="milestone">
+                        <div class="milestone__label">${label}</div>
+                        <h4 class="milestone__title">${title}</h4>
+                    </li>
+                `
+            })
+            renderElem(document.getElementById('tokenroom_milestones_wrapper'), html`${renderedTokenroomMilestones}`)
+
             const teamMembersList = document.getElementById('team_members')
             teamMembers.sort((a, b) => a.name.localeCompare(b.name))
             const renderedTeamMembers = teamMembers.map(member => {
@@ -673,15 +707,41 @@
             const renderedMethodology = methodology.map((step, index) => {
                 const { title, content } = step
                 return html`
-                    <div class="milestone">
+                    <li class="milestone">
                         <div class="milestone__label">${index + 1}</div>
                         <h3 class="milestone__title">${title}</h3>
                         <p class="milestone__description">${content}</p>
-                    </div>
+                    </li>
                 `
             })
             renderElem(document.getElementById('methodology_wrapper'), html`${renderedMethodology}`)
         })
+        const tokenroomMilestones = [
+            {
+                label: '1st April 2023',
+                title: `Token Room tokens created`,
+            },
+            {
+                label: '5th April 2023',
+                title: `Token Room started`,
+            },
+            {
+                label: '7th April 2023',
+                title: `Tokens totally sold`,
+            },
+            {
+                label: '17th April 2023',
+                title: `John's Investment`,
+            },
+            {
+                label: '17th April 2023',
+                title: `Multisig hits more than 15k USD`,
+            },
+            {
+                label: '',
+                title: `Smartcontract based market launched`,
+            },
+        ]
         const methodology = [
             {
                 title: `Identify a token project`,
@@ -864,7 +924,18 @@
                 })
             }
         }
-
+        function toggleDetails(e) {
+            const projectCard = e.target.closest('.project')
+            const projectDetails = projectCard.querySelector('.project__hidden-details')
+            const projectDetailsButton = e.target.closest('button')
+            projectDetails.classList.toggle('hidden')
+            projectDetailsButton.textContent = projectDetails.classList.contains('hidden') ? 'Show details' : 'Hide details'
+            projectDetails.scrollIntoView({
+                behavior: 'smooth',
+                inline: 'center',
+                block: 'nearest'
+            })
+        }
     </script>
 </body>
 

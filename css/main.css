@@ -353,7 +353,6 @@ section:nth-of-type(2) {
 
 .project {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   width: 100%;
   border-radius: 0.8rem;
   border: solid thin rgba(var(--text-color), 0.1);
@@ -412,7 +411,7 @@ section:nth-of-type(2) {
   gap: 1rem;
   flex: 1;
 }
-.project__link {
+.project__button {
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
@@ -423,6 +422,26 @@ section:nth-of-type(2) {
   border-radius: 1rem;
   letter-spacing: 0.05em;
   align-self: flex-end;
+  border: none;
+  cursor: pointer;
+}
+.project .project__hidden-details {
+  grid-column: 1/-1;
+  padding: 1rem;
+  border-top: solid thin rgba(var(--text-color), 0.5);
+  overflow: hidden;
+}
+.project .project__hidden-details .carousel {
+  z-index: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.project .project__hidden-details .milestone {
+  width: min(100% - 1rem, 20rem);
+}
+.project .project__hidden-details .milestone__title {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .badge {
@@ -456,6 +475,10 @@ section:nth-of-type(2) {
 }
 #poc_stats .stat__title {
   font-size: 0.9rem;
+}
+
+#methodology_wrapper {
+  margin-bottom: 0;
 }
 
 #economics_section h2 {
@@ -692,8 +715,8 @@ section:nth-of-type(2) {
     opacity: 0.6;
     left: calc(100% - 50vw);
   }
-  #poc_images {
-    grid-template-columns: repeat(4, 1fr);
+  .project {
+    grid-template-columns: 1fr 1fr;
   }
   .hide-on-large {
     display: none !important;
