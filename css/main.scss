@@ -105,7 +105,7 @@ ol {
 .align-self-center {
   align-self: center;
 }
-.flex-column {
+.flex-direction-column {
   flex-direction: column;
 }
 .flex-1 {
@@ -213,8 +213,9 @@ article {
 section {
   display: grid;
   position: relative;
-  min-height: 90vh;
   align-content: center;
+  padding-bottom: 6rem;
+  min-height: 40vmax;
   &:nth-of-type(2) {
     overflow: hidden;
   }
@@ -302,7 +303,7 @@ section {
     }
   }
   &__title {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 }
 .carousel-control {
@@ -451,8 +452,10 @@ section {
     display: grid;
     max-width: 42rem;
     width: auto;
+    gap: 1rem 2rem;
     grid-template-areas: "label title" "label description";
     align-items: center;
+    padding-right: 0;
     &:not(:last-child) {
       padding-bottom: 3rem;
     }
@@ -468,11 +471,9 @@ section {
     &__title {
       grid-area: title;
       margin-top: 0;
-      padding-left: 3rem;
     }
     &__description {
       grid-area: description;
-      padding-left: 3rem;
     }
   }
 }
@@ -500,20 +501,24 @@ section {
 
 #team_members {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(8rem, 12vw), 1fr));
-  gap: 3rem 1.5rem;
+  gap: 1rem;
   margin-top: 3rem;
 }
 .team-member {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  display: grid;
+  grid-template-columns: min(10rem, 50vw) 1fr;
+  background-color: rgba(var(--foreground-color), 1);
+  border-radius: 0.5rem;
+  overflow: hidden;
   img {
     object-fit: cover;
-    width: 100%;
     aspect-ratio: 3/3.5;
-    border-radius: 1rem;
-    margin-bottom: 1.2rem;
+    width: 100%;
+  }
+  .flex {
+    padding: 1rem;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
   &__name {
     font-weight: 700;
@@ -707,6 +712,9 @@ section {
   }
   .project {
     grid-template-columns: 1fr 1fr;
+  }
+  #team_members {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   }
   .hide-on-large {
     display: none !important;
