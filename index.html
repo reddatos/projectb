@@ -74,6 +74,26 @@
             </div>
         </section>
         <section>
+            <h2>Milestones</h2>
+            <ul id="projectb_milestones_wrapper" class="carousel"> </ul>
+            <div class="carousel-controls flex gap-0-3">
+                <button class="carousel-control" onclick="scrollCarousel('projectb_milestones_wrapper', 'left')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="carousel-control" onclick="scrollCarousel('projectb_milestones_wrapper', 'right')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section>
             <h4 class="section-header">Blockchain Network Partners </h4>
             <ul id="partners">
                 <li>
@@ -240,31 +260,12 @@
                                 <div class="stat__title">Invested nights consumed</div>
                             </li>
                         </ul>
-                        <button href="#/tokenroom" class="project__button" onclick="toggleDetails(event)">Show
-                            details</button>
+                        <!-- <button href="#/tokenroom" class="project__button" onclick="toggleDetails(event)">Show
+                            details</button> -->
                     </div>
-                    <div class="project__hidden-details grid hidden">
-                        <h4>Milestones</h4>
-                        <ul id="tokenroom_milestones_wrapper" class="carousel"> </ul>
-                        <div class="carousel-controls flex gap-0-3">
-                            <button class="carousel-control"
-                                onclick="scrollCarousel('tokenroom_milestones_wrapper', 'left')">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
-                                    width="24px" fill="#000000">
-                                    <path d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                                </svg>
-                            </button>
-                            <button class="carousel-control"
-                                onclick="scrollCarousel('tokenroom_milestones_wrapper', 'right')">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
-                                    width="24px" fill="#000000">
-                                    <path d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+                    <!-- <div class="project__hidden-details grid hidden">
+                        <h4>Details</h4>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -677,7 +678,7 @@
             }
         })
         router.addRoute('', () => {
-            const renderedTokenroomMilestones = tokenroomMilestones.map((milestone, index) => {
+            const renderedTokenroomMilestones = tokenroomMilestones.reverse().map((milestone, index) => {
                 const { label, title } = milestone
                 return html`
                     <li class="milestone">
@@ -686,7 +687,7 @@
                     </li>
                 `
             })
-            renderElem(document.getElementById('tokenroom_milestones_wrapper'), html`${renderedTokenroomMilestones}`)
+            renderElem(document.getElementById('projectb_milestones_wrapper'), html`${renderedTokenroomMilestones}`)
 
             const teamMembersList = document.getElementById('team_members')
             teamMembers.sort((a, b) => a.name.localeCompare(b.name))
