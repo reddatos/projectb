@@ -41,7 +41,7 @@ body[data-theme=dark] {
 
 p,
 strong {
-  font-size: 0.9rem;
+  font-size: 1rem;
   max-width: 70ch;
   line-height: 1.6;
   color: rgba(var(--text-color), 0.8);
@@ -77,6 +77,10 @@ img {
 
 ul {
   list-style: none;
+}
+
+ol {
+  padding-left: 1rem;
 }
 
 .icon {
@@ -219,23 +223,30 @@ article > * {
   display: flex;
 }
 
-#above_fold {
-  padding-top: 0;
-  height: calc(100vh - 6rem);
-  text-align: center;
-  align-content: center;
-}
 #above_fold h2 {
-  margin: auto;
   max-width: 46rem;
+  justify-self: center;
+  text-align: center;
+  margin-bottom: 3rem;
 }
-#above_fold p {
-  max-width: none;
+#above_fold ol {
+  display: block;
+  -moz-columns: 2 24rem;
+       columns: 2 24rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+#above_fold ol li {
+  page-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  margin-bottom: 3rem;
 }
 
 #hero_illustration {
-  width: min(100%, 26rem);
   margin: auto;
+  margin-top: 4rem;
+  width: min(100%, 26rem);
 }
 
 section {
@@ -349,6 +360,10 @@ section:nth-of-type(2) {
 
 .carousel:has(.project) {
   padding-bottom: 3rem;
+}
+
+#projects_section h2 {
+  margin-bottom: 3rem;
 }
 
 .project {
@@ -478,19 +493,49 @@ section:nth-of-type(2) {
 }
 
 #methodology_wrapper {
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+#methodology_wrapper .milestone {
+  display: grid;
+  max-width: 42rem;
+  width: auto;
+  grid-template-areas: "label title" "label description";
+  align-items: center;
+}
+#methodology_wrapper .milestone:not(:last-child) {
+  padding-bottom: 3rem;
+}
+#methodology_wrapper .milestone__label {
+  align-items: flex-start;
+  justify-content: center;
+  grid-area: label;
+}
+#methodology_wrapper .milestone__label::before {
+  width: 0.1rem;
+  height: 100%;
+}
+#methodology_wrapper .milestone__title {
+  grid-area: title;
+  margin-top: 0;
+  padding-left: 3rem;
+}
+#methodology_wrapper .milestone__description {
+  grid-area: description;
+  padding-left: 3rem;
 }
 
-#economics_section h2 {
+#economic_framework h2 {
   margin-bottom: 3rem;
 }
-#economics_section ul {
+#economic_framework ul {
   -moz-columns: 3 16rem;
        columns: 3 16rem;
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
 }
-#economics_section li {
+#economic_framework ul li {
   display: grid;
   gap: 0.5rem;
   align-items: flex-start;
@@ -536,39 +581,47 @@ section:nth-of-type(2) {
 }
 
 #partners {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: 1rem;
-  margin: auto;
-  justify-content: space-evenly;
+  margin-top: 3rem;
 }
 #partners a,
 #partners li:not(li:has(a)) {
   display: flex;
-  flex-direction: column;
   gap: 0.8rem;
-  text-align: center;
-  align-items: center;
   padding: 1rem;
   text-decoration: none;
+  width: 100%;
+  align-items: center;
+  background-color: rgba(var(--text-color), 0.06);
+  border-radius: 0.5rem;
 }
 #partners a .icon,
 #partners li:not(li:has(a)) .icon {
   width: 2rem;
   height: 2rem;
 }
+#partners img {
+  height: 2rem;
+}
 #partners span {
   font-weight: 500;
   color: rgba(var(--text-color), 0.8);
+  width: 100%;
 }
 
-#media_coverage_section .carousel {
+#media_coverage_section .masonry {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
-#media_coverage_section .carousel > * {
-  flex-shrink: 0;
-  width: min(100% - 2rem, 32rem);
+#media_coverage_section .masonry iframe {
+  display: flex;
+  flex: 1 1 15rem;
   border-radius: 0.5rem;
+  max-width: max(100vw - 2.5rem);
 }
 
 #social_links {
@@ -604,14 +657,15 @@ section:nth-of-type(2) {
   font-weight: 500;
 }
 
-#services ul {
-  -moz-columns: 4 16rem;
-       columns: 4 16rem;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-}
-#services li {
+#services_section ul {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+#services_section li {
+  display: flex;
+  flex: 1 1 20rem;
   gap: 1rem;
   align-items: center;
   padding: max(1rem, 2vw);
@@ -621,12 +675,8 @@ section:nth-of-type(2) {
   -webkit-animation: slide-up 0.5s ease var(--delay) forwards;
           animation: slide-up 0.5s ease var(--delay) forwards;
   opacity: 0;
-  margin-bottom: 0.5rem;
-  -moz-column-break-inside: avoid;
-       break-inside: avoid;
-  page-break-inside: avoid;
 }
-#services .icon {
+#services_section .icon {
   height: 2.5rem;
   width: 2.5rem;
 }
