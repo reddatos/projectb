@@ -42,7 +42,7 @@ strong {
   font-size: 1rem;
   max-width: 70ch;
   line-height: 1.6;
-  color: rgba(var(--text-color), 0.8);
+  color: rgba(var(--text-color), 0.9);
 }
 img {
   width: 100%;
@@ -69,6 +69,12 @@ ul {
 }
 ol {
   padding-left: 1rem;
+  li {
+    color: rgba(var(--text-color), 0.9);
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 .icon {
   width: 1.2rem;
@@ -230,6 +236,9 @@ section {
     line-height: 0.5;
   }
 }
+#payment_section {
+  min-height: 80vh;
+}
 #bitcoin_lineart {
   position: absolute;
   opacity: 0.2;
@@ -242,6 +251,7 @@ section {
 #el_salvador_section {
   position: relative;
   overflow: hidden;
+  min-height: 60vmax;
 }
 #el_salvador_map {
   position: absolute;
@@ -399,18 +409,6 @@ section {
     padding: 1rem;
     border-top: solid thin rgba(var(--text-color), 0.5);
     overflow: hidden;
-    .carousel {
-      z-index: 2;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .milestone {
-      width: min(calc(100% - 1rem), 20rem);
-      &__title {
-        margin-top: 0.5rem;
-        font-size: 1.2rem;
-      }
-    }
   }
 }
 .badge {
@@ -470,7 +468,7 @@ section {
     }
     &__title {
       grid-area: title;
-      margin-top: 0;
+      margin-top: -0.1em;
     }
     &__description {
       grid-area: description;
@@ -510,6 +508,7 @@ section {
   background-color: rgba(var(--foreground-color), 1);
   border-radius: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
   img {
     object-fit: cover;
     aspect-ratio: 3/3.5;
@@ -557,7 +556,7 @@ section {
   }
   span {
     font-weight: 500;
-    color: rgba(var(--text-color), 0.8);
+    color: rgba(var(--text-color), 0.9);
     width: 100%;
   }
 }
@@ -746,6 +745,13 @@ section {
           width: 1rem;
         }
       }
+    }
+  }
+  .team-member {
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 0 0 0 rgba(var(--text-color), 1);
+    &:hover {
+      box-shadow: 0 0 0 0.1rem rgba(var(--text-color), 1);
     }
   }
 }

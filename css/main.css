@@ -44,7 +44,7 @@ strong {
   font-size: 1rem;
   max-width: 70ch;
   line-height: 1.6;
-  color: rgba(var(--text-color), 0.8);
+  color: rgba(var(--text-color), 0.9);
 }
 
 img {
@@ -81,6 +81,12 @@ ul {
 
 ol {
   padding-left: 1rem;
+}
+ol li {
+  color: rgba(var(--text-color), 0.9);
+}
+ol li:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .icon {
@@ -271,6 +277,10 @@ section:nth-of-type(2) {
   line-height: 0.5;
 }
 
+#payment_section {
+  min-height: 80vh;
+}
+
 #bitcoin_lineart {
   position: absolute;
   opacity: 0.2;
@@ -283,6 +293,7 @@ section:nth-of-type(2) {
 #el_salvador_section {
   position: relative;
   overflow: hidden;
+  min-height: 60vmax;
 }
 
 #el_salvador_map {
@@ -447,18 +458,6 @@ section:nth-of-type(2) {
   border-top: solid thin rgba(var(--text-color), 0.5);
   overflow: hidden;
 }
-.project .project__hidden-details .carousel {
-  z-index: 2;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.project .project__hidden-details .milestone {
-  width: min(100% - 1rem, 20rem);
-}
-.project .project__hidden-details .milestone__title {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-}
 
 .badge {
   background-color: rgba(var(--text-color), 1);
@@ -521,7 +520,7 @@ section:nth-of-type(2) {
 }
 #methodology_wrapper .milestone__title {
   grid-area: title;
-  margin-top: 0;
+  margin-top: -0.1em;
 }
 #methodology_wrapper .milestone__description {
   grid-area: description;
@@ -562,6 +561,7 @@ section:nth-of-type(2) {
   background-color: rgba(var(--foreground-color), 1);
   border-radius: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
 .team-member img {
   -o-object-fit: cover;
@@ -612,7 +612,7 @@ section:nth-of-type(2) {
 }
 #partners span {
   font-weight: 500;
-  color: rgba(var(--text-color), 0.8);
+  color: rgba(var(--text-color), 0.9);
   width: 100%;
 }
 
@@ -799,6 +799,13 @@ section:nth-of-type(2) {
   }
   #main_header ul a:hover::after {
     width: 1rem;
+  }
+  .team-member {
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 0 0 0 rgba(var(--text-color), 1);
+  }
+  .team-member:hover {
+    box-shadow: 0 0 0 0.1rem rgba(var(--text-color), 1);
   }
 }
 .hidden {
