@@ -1136,6 +1136,7 @@
             },
         ]
         router.addRoute('economic_framework', () => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         })
         window.onload = () => {
             document.body.classList.remove('hidden')
