@@ -252,15 +252,35 @@ section {
   position: relative;
   overflow: hidden;
   min-height: 60vmax;
+  background: linear-gradient(to left, #00000080, #000000d0),
+    url("../assets/representational/esau-gonzalez-bQefbdSC4ko-unsplash.jpg")
+      no-repeat center center fixed;
+  color: rgba(var(--foreground-color), 1);
+  p {
+    color: rgba(var(--foreground-color), 0.9);
+  }
 }
-#el_salvador_map {
-  position: absolute;
-  opacity: 0.06;
-  top: 0;
-  width: max(100vh, 90vw);
-  height: auto;
-  left: 50%;
-  transform: translateX(-50%);
+#projectb_milestones_section {
+  background: linear-gradient(to left, #000000d0, #000000d0),
+    url("../assets/representational/nik-z1d-LP8sjuI-unsplash.jpg") no-repeat top
+      20% center fixed;
+  color: rgba(var(--foreground-color), 1);
+  padding-bottom: 3rem;
+  p {
+    color: rgba(var(--foreground-color), 0.9);
+  }
+  .carousel-control {
+    border: solid thin rgba(var(--foreground-color), 0.5);
+    background: rgba(var(--foreground-color), 1);
+  }
+  .milestone {
+    isolation: isolate;
+    &__label {
+      &::before {
+        background-color: rgba(var(--foreground-color), 1);
+      }
+    }
+  }
 }
 .carousel {
   display: flex;
@@ -296,12 +316,13 @@ section {
   &__label {
     display: flex;
     align-items: center;
-    background-color: rgba(var(--text-color), 1);
-    color: rgba(var(--foreground-color), 1);
+    background-color: rgba(var(--foreground-color), 1);
+    color: rgba(var(--text-color), 1);
     padding: 0.4rem 0.5rem;
     align-self: flex-start;
     border-radius: 0.3rem;
     font-size: 0.9rem;
+    font-weight: 500;
     &::before {
       position: absolute;
       content: "";
@@ -329,6 +350,7 @@ section {
   padding-bottom: 3rem;
 }
 #projects_section {
+  padding-top: 5rem;
   h2 {
     margin-bottom: 3rem;
   }
@@ -440,6 +462,17 @@ section {
     &__title {
       font-size: 0.9rem;
     }
+  }
+}
+#methodology_section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: linear-gradient(to left, #000000a0, #000000d0),
+    url("../assets/representational/irfan-simsar-wxWulfjN-G0-unsplash.jpg")
+      no-repeat center center;
+  color: rgba(var(--foreground-color), 1);
+  p {
+    color: rgba(var(--foreground-color), 0.9);
   }
 }
 #methodology_wrapper {
@@ -577,6 +610,13 @@ section {
 }
 
 #socials_section {
+  background: linear-gradient(to left, #00000050, #00000080),
+    url("../assets/representational/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat
+      center center fixed;
+  color: rgba(var(--foreground-color), 1);
+  p {
+    color: rgba(var(--foreground-color), 0.9);
+  }
 }
 #social_links {
   display: flex;
@@ -593,8 +633,9 @@ section {
     transition: box-shadow 0.1s ease;
     flex: 1 1 8rem;
     border-radius: 0.5rem;
+    background-color: rgba(var(--foreground-color), 1);
     &:hover {
-      box-shadow: 0 0 0 0.1rem rgba(var(--text-color), 1);
+      box-shadow: 0 0 0 0.1rem rgba(var(--foreground-color), 1);
     }
   }
   a {
@@ -633,41 +674,6 @@ section {
   .icon {
     height: 2.5rem;
     width: 2.5rem;
-  }
-}
-#news_list {
-  display: grid;
-  gap: 0.5rem;
-  li {
-    container: news-item / inline-size;
-  }
-}
-.news-item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas: " icon ." "icon ." "icon ." "icon .";
-  gap: 0.5rem 1rem;
-  border: solid thin rgba(var(--text-color), 0.5);
-  border-radius: 0.5rem;
-  padding: max(1rem, 2vw);
-  text-decoration: none;
-  color: rgba(var(--text-color), 0.9);
-  animation: slide-up 0.5s ease var(--delay) forwards;
-  opacity: 0;
-  &__icon {
-    grid-area: icon;
-    .icon {
-      height: 2rem;
-      width: 2rem;
-    }
-  }
-  &__date {
-    background-color: rgba(var(--text-color), 0.1);
-    margin-right: auto;
-    padding: 0.1rem 0.5rem;
-    border-radius: 0.3rem;
-    font-weight: 500;
-    font-size: 0.8rem;
   }
 }
 @keyframes slide-up {
