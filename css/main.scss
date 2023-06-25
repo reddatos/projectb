@@ -161,6 +161,14 @@ button,
 .text-center {
   text-align: center;
 }
+.reveal {
+  display: flex;
+  overflow: hidden;
+  span {
+    opacity: 0;
+    transform-origin: left bottom;
+  }
+}
 article {
   & > * {
     padding: max(1rem, 2vw) var(--inline-padding);

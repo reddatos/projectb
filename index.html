@@ -30,7 +30,11 @@
         <section id="above_fold" class="gap-4">
             <!-- <img id="hero_illustration" src="assets/svg/cityscape.svg" alt=""> -->
             <div class="grid gap-0-5">
-                <h2>Execution of tokenization projects</h2>
+                <h2 class="reveal">
+                    <span>
+                        Execution of tokenization projects
+                    </span>
+                </h2>
             </div>
             <ol class="grid gap-3" type="1">
                 <li class="grid gap-1">
@@ -82,7 +86,9 @@
             </ol>
         </section>
         <section id="services_section">
-            <h2>Services</h2>
+            <h2 class="reveal">
+                <span>Services</span>
+            </h2>
             <ul>
                 <li style="--delay: 0s">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
@@ -162,7 +168,7 @@
             </ul>
         </section>
         <section id="projectb_milestones_section">
-            <h2>Milestones</h2>
+            <h2 class="reveal"><span>Milestones</span></h2>
             <ul id="projectb_milestones_wrapper" class="carousel"> </ul>
             <div class="carousel-controls flex gap-0-3">
                 <button class="carousel-control" onclick="scrollCarousel('projectb_milestones_wrapper', 'left')">
@@ -182,7 +188,7 @@
             </div>
         </section>
         <section>
-            <h2>Blockchain Partners </h2>
+            <h2 class="reveal"><span>Blockchain Partners</span></h2>
             <ul id="partners">
                 <li>
                     <a href="https://www.ranchimall.net/" target="_blank">
@@ -300,8 +306,8 @@
         </section>
         <section id="payment_section" class="gap-1-5">
             <div class="grid">
-                <h4>International Payments</h4>
-                <h2>Pay with Bitcoin</h2>
+                <h4 class="reveal"><span>International Payments</span></h4>
+                <h2 class="reveal"><span>Pay with Bitcoin</span></h2>
             </div>
             <p>
                 Explore the world with seamless property rentals,
@@ -313,8 +319,8 @@
             <!-- <img src="assets/representational/oswaldo-martinez-bK-SRSgPWz8-unsplash.jpg" alt="" id="el_salvador_map"> -->
             <div class="grid gap-2">
                 <div class="grid">
-                    <h4>Why</h4>
-                    <h2>El Salvador?</h2>
+                    <h4 class="reveal"><span>Why</span></h4>
+                    <h2 class="reveal"><span>El Salvador?</span></h2>
                 </div>
                 <div class="grid gap-1">
                     <p>
@@ -345,7 +351,7 @@
             </div>
         </section>
         <section id="projects_section">
-            <h2>Projects</h2>
+            <h2 class="reveal"><span>Projects</span></h2>
             <div class="grid gap-2">
                 <div class="project">
                     <div class="project__images grid">
@@ -485,15 +491,11 @@
             </div>
         </section>
         <section id="methodology_section">
-            <h2>
-                Methodology
-            </h2>
+            <h2 class="reveal"><span>Methodology</span></h2>
             <ul id="methodology_wrapper"> </ul>
         </section>
         <section class="grid gap-3">
-            <h2>
-                Project team structure
-            </h2>
+            <h2 class="reveal"><span>Project team structure</span> </h2>
             <div id="project_team__components">
                 <div class="grid gap-1">
                     <h3>
@@ -556,7 +558,7 @@
             </div>
         </section>
         <section>
-            <h2>Team</h4>
+            <h2 class="reveal"><span>Team</span></h4>
                 <ul id="team_members"></ul>
                 <dialog id="member_details">
                     <img src="" alt="" id="member_image">
@@ -570,7 +572,7 @@
                 </dialog>
         </section>
         <section id="media_coverage_section">
-            <h2>Media coverage</h2>
+            <h2 class="reveal"><span>Media coverage</span></h2>
             <div class="masonry">
                 <iframe loading="lazy" width="560" height="315" src="https://www.youtube-nocookie.com/embed/4BX8HNfjmag"
                     title="YouTube video player" frameborder="0"
@@ -634,7 +636,7 @@
             </div>
         </section>
         <section id="socials_section">
-            <h2>Socials</h2>
+            <h2 class="reveal"><span>Socials</span></h2>
             <ul id="social_links">
                 <li>
                     <a href="https://twitter.com/ProjectBSV" target="_blank">
@@ -767,9 +769,7 @@
         </section>
     </article>
     <article id="economic_framework" class="page hidden">
-        <h2>
-            Economic framework deployed
-        </h2>
+        <h2 class="reveal"><span>Economic framework deployed</span></h2>
         <div>
             <ol type="1">
                 <li>
@@ -1140,6 +1140,35 @@
         window.onload = () => {
             document.body.classList.remove('hidden')
             router.routeTo(window.location.hash)
+
+            const headingObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.firstElementChild.animate([
+                            {
+                                transform: 'translateY(0.5em)',
+                                opacity: 0
+                            },
+                            {
+                                transform: 'none',
+                                opacity: 1
+                            },
+                        ], {
+                            duration: 300,
+                            easing: 'ease',
+                            fill: 'forwards',
+                            delay: 100
+                        })
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }, {
+                threshold: 0.8
+            })
+
+            document.querySelectorAll('.reveal').forEach(heading => {
+                headingObserver.observe(heading)
+            })
         }
 
         function scrollCarousel(containerId, direction) {
