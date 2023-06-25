@@ -76,6 +76,23 @@ ol {
     }
   }
 }
+button,
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(var(--text-color), 1);
+  background-color: rgba(var(--text-color), 0.1);
+  border-radius: 3rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+}
 .icon {
   width: 1.2rem;
   height: 1.2rem;
@@ -145,7 +162,6 @@ ol {
   text-align: center;
 }
 article {
-  padding-top: 4rem;
   & > * {
     padding: max(1rem, 2vw) var(--inline-padding);
   }
@@ -158,12 +174,12 @@ article {
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(var(--foreground-color), 0.5);
+  background-color: rgba(var(--text-color), 0.5);
   z-index: 10;
   backdrop-filter: blur(1rem);
-  padding: max(1rem, 2vw) var(--inline-padding);
+  padding: max(1rem, 1.5vw) var(--inline-padding);
   a {
-    color: rgba(var(--text-color), 0.9);
+    color: rgba(var(--foreground-color), 0.9);
     text-decoration: none;
   }
   ul {
@@ -178,9 +194,11 @@ article {
         display: block;
         width: 0;
         height: 0.15rem;
-        background: var(--accent-color);
+        background: rgba(var(--foreground-color), 1);
         transition: width 0.3s;
         margin: auto;
+        margin-top: 0.1rem;
+        border-radius: 0.5rem;
       }
       &.active {
         &::after {
@@ -194,20 +212,28 @@ article {
   }
 }
 #above_fold {
+  background: linear-gradient(#00000080, #000000d0),
+    url("../assets/representational/shubham-s-web3-pXdzCRJNum0-unsplash.jpg")
+      no-repeat center center;
+  background-size: cover;
+  color: rgba(var(--foreground-color), 1);
+  padding-top: 40vh;
+  p {
+    color: rgba(var(--foreground-color), 0.9);
+  }
   h2 {
-    max-width: 46rem;
-    justify-self: center;
-    text-align: center;
     margin-bottom: 3rem;
   }
   ol {
     display: block;
     columns: 2 24rem;
     column-gap: 2rem;
+    padding-left: 0;
     li {
       page-break-inside: avoid;
       break-inside: avoid;
       margin-bottom: 3rem;
+      color: rgba(var(--foreground-color), 1);
     }
   }
 }
@@ -220,6 +246,7 @@ section {
   display: grid;
   position: relative;
   align-content: center;
+  padding-top: 3rem;
   padding-bottom: 6rem;
   min-height: 40vmax;
   &:nth-of-type(2) {
@@ -255,6 +282,7 @@ section {
   background: linear-gradient(to left, #00000080, #000000d0),
     url("../assets/representational/esau-gonzalez-bQefbdSC4ko-unsplash.jpg")
       no-repeat center center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
   p {
     color: rgba(var(--foreground-color), 0.9);
@@ -264,6 +292,7 @@ section {
   background: linear-gradient(to left, #000000d0, #000000d0),
     url("../assets/representational/nik-z1d-LP8sjuI-unsplash.jpg") no-repeat top
       20% center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
   padding-bottom: 3rem;
   p {
@@ -305,6 +334,7 @@ section {
   flex-shrink: 0;
   scroll-snap-align: start;
   padding-right: 3rem;
+  isolation: isolate;
   &:last-of-type {
     padding-right: 0;
     .milestone__label {
@@ -329,7 +359,7 @@ section {
       display: block;
       width: 100%;
       height: 0.1rem;
-      background-color: rgba(var(--text-color), 0.3);
+      background-color: rgba(var(--foreground-color), 0.5);
       z-index: -1;
     }
   }
@@ -350,7 +380,6 @@ section {
   padding-bottom: 3rem;
 }
 #projects_section {
-  padding-top: 5rem;
   h2 {
     margin-bottom: 3rem;
   }
@@ -465,11 +494,11 @@ section {
   }
 }
 #methodology_section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   background: linear-gradient(to left, #000000a0, #000000d0),
     url("../assets/representational/irfan-simsar-wxWulfjN-G0-unsplash.jpg")
       no-repeat center center;
+  background-size: cover;
+
   color: rgba(var(--foreground-color), 1);
   p {
     color: rgba(var(--foreground-color), 0.9);
@@ -508,9 +537,19 @@ section {
     }
   }
 }
+#project_team__components {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 1.5rem;
+  & > * {
+    align-content: flex-start;
+    flex: 1 1 24rem;
+  }
+}
 #economic_framework {
+  padding-top: 6rem;
   h2 {
-    margin-bottom: 3rem;
+    margin: 3rem 0 1rem 0;
   }
   ul {
     columns: 3 16rem;
@@ -561,6 +600,10 @@ section {
     line-height: normal;
     font-weight: 500;
     font-size: 0.9rem;
+  }
+  &__button {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -613,6 +656,7 @@ section {
   background: linear-gradient(to left, #00000050, #00000080),
     url("../assets/representational/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat
       center center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
   p {
     color: rgba(var(--foreground-color), 0.9);
@@ -695,6 +739,69 @@ section {
     }
   }
 }
+
+#person_bio {
+  margin: auto;
+  border: none;
+  border-radius: 0.5rem;
+  padding: max(1rem, 2vw);
+  box-shadow: 0 1rem 2rem rgba(var(--text-color), 0.1);
+  animation: popup 0.3s forwards;
+  width: min(100%, 48rem);
+  button {
+    padding: 0.5rem;
+    background-color: rgba(var(--text-color), 0.2);
+    border-radius: 5rem;
+    margin-bottom: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(0.5rem);
+  }
+}
+#person_bio_wrapper {
+  display: grid;
+  gap: 0.5rem 1.5rem;
+  grid-template-columns: min(16rem, 100%) 1fr;
+  grid-template-areas: "image name" "image title" "image bio";
+  grid-template-rows: auto auto 1fr;
+}
+#person__image {
+  grid-area: image;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+#person__name {
+  grid-area: name;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+#person__title {
+  grid-area: title;
+  font-size: 1rem;
+  font-weight: 500;
+}
+#person__bio {
+  grid-area: bio;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(var(--text-color), 0.8);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @media screen and (max-width: 768px) {
   #poc_images {
     .poc-wrapper {
@@ -702,6 +809,14 @@ section {
         grid-area: 3/2/4/3;
       }
     }
+  }
+  #person_bio_wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "name" "title" "bio";
+  }
+  #person__image {
+    aspect-ratio: 1/1;
+    margin-bottom: 1.5rem;
   }
   .hide-on-small {
     display: none !important;

@@ -89,6 +89,24 @@ ol li:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
+button,
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(var(--text-color), 1);
+  background-color: rgba(var(--text-color), 0.1);
+  border-radius: 3rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+}
+
 .icon {
   width: 1.2rem;
   height: 1.2rem;
@@ -179,9 +197,6 @@ ol li:not(:last-child) {
   text-align: center;
 }
 
-article {
-  padding-top: 4rem;
-}
 article > * {
   padding: max(1rem, 2vw) var(--inline-padding);
 }
@@ -194,14 +209,14 @@ article > * {
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(var(--foreground-color), 0.5);
+  background-color: rgba(var(--text-color), 0.5);
   z-index: 10;
   -webkit-backdrop-filter: blur(1rem);
           backdrop-filter: blur(1rem);
-  padding: max(1rem, 2vw) var(--inline-padding);
+  padding: max(1rem, 1.5vw) var(--inline-padding);
 }
 #main_header a {
-  color: rgba(var(--text-color), 0.9);
+  color: rgba(var(--foreground-color), 0.9);
   text-decoration: none;
 }
 #main_header ul {
@@ -218,9 +233,11 @@ article > * {
   display: block;
   width: 0;
   height: 0.15rem;
-  background: var(--accent-color);
+  background: rgba(var(--foreground-color), 1);
   transition: width 0.3s;
   margin: auto;
+  margin-top: 0.1rem;
+  border-radius: 0.5rem;
 }
 #main_header ul a.active::after {
   width: 1rem;
@@ -229,10 +246,16 @@ article > * {
   display: flex;
 }
 
+#above_fold {
+  background: linear-gradient(rgba(0, 0, 0, 0.5019607843), rgba(0, 0, 0, 0.8156862745)), url("../assets/representational/shubham-s-web3-pXdzCRJNum0-unsplash.jpg") no-repeat center center;
+  background-size: cover;
+  color: rgba(var(--foreground-color), 1);
+  padding-top: 40vh;
+}
+#above_fold p {
+  color: rgba(var(--foreground-color), 0.9);
+}
 #above_fold h2 {
-  max-width: 46rem;
-  justify-self: center;
-  text-align: center;
   margin-bottom: 3rem;
 }
 #above_fold ol {
@@ -241,12 +264,14 @@ article > * {
        columns: 2 24rem;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
+  padding-left: 0;
 }
 #above_fold ol li {
   page-break-inside: avoid;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
   margin-bottom: 3rem;
+  color: rgba(var(--foreground-color), 1);
 }
 
 #hero_illustration {
@@ -259,6 +284,7 @@ section {
   display: grid;
   position: relative;
   align-content: center;
+  padding-top: 3rem;
   padding-bottom: 6rem;
   min-height: 40vmax;
 }
@@ -295,6 +321,7 @@ section:nth-of-type(2) {
   overflow: hidden;
   min-height: 60vmax;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.5019607843), rgba(0, 0, 0, 0.8156862745)), url("../assets/representational/esau-gonzalez-bQefbdSC4ko-unsplash.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
 }
 #el_salvador_section p {
@@ -303,6 +330,7 @@ section:nth-of-type(2) {
 
 #projectb_milestones_section {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.8156862745), rgba(0, 0, 0, 0.8156862745)), url("../assets/representational/nik-z1d-LP8sjuI-unsplash.jpg") no-repeat top 20% center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
   padding-bottom: 3rem;
 }
@@ -344,6 +372,7 @@ section:nth-of-type(2) {
   flex-shrink: 0;
   scroll-snap-align: start;
   padding-right: 3rem;
+  isolation: isolate;
 }
 .milestone:last-of-type {
   padding-right: 0;
@@ -368,7 +397,7 @@ section:nth-of-type(2) {
   display: block;
   width: 100%;
   height: 0.1rem;
-  background-color: rgba(var(--text-color), 0.3);
+  background-color: rgba(var(--foreground-color), 0.5);
   z-index: -1;
 }
 .milestone__title {
@@ -389,9 +418,6 @@ section:nth-of-type(2) {
   padding-bottom: 3rem;
 }
 
-#projects_section {
-  padding-top: 5rem;
-}
 #projects_section h2 {
   margin-bottom: 3rem;
 }
@@ -511,9 +537,8 @@ section:nth-of-type(2) {
 }
 
 #methodology_section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.6274509804), rgba(0, 0, 0, 0.8156862745)), url("../assets/representational/irfan-simsar-wxWulfjN-G0-unsplash.jpg") no-repeat center center;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
 }
 #methodology_section p {
@@ -554,8 +579,21 @@ section:nth-of-type(2) {
   grid-area: description;
 }
 
+#project_team__components {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 1.5rem;
+}
+#project_team__components > * {
+  align-content: flex-start;
+  flex: 1 1 24rem;
+}
+
+#economic_framework {
+  padding-top: 6rem;
+}
 #economic_framework h2 {
-  margin-bottom: 3rem;
+  margin: 3rem 0 1rem 0;
 }
 #economic_framework ul {
   -moz-columns: 3 16rem;
@@ -612,6 +650,10 @@ section:nth-of-type(2) {
   font-weight: 500;
   font-size: 0.9rem;
 }
+.team-member__button {
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+}
 
 #partners {
   display: grid;
@@ -659,6 +701,7 @@ section:nth-of-type(2) {
 
 #socials_section {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.3137254902), rgba(0, 0, 0, 0.5019607843)), url("../assets/representational/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: rgba(var(--foreground-color), 1);
 }
 #socials_section p {
@@ -753,9 +796,100 @@ section:nth-of-type(2) {
     grid-area: unset;
   }
 }
+#person_bio {
+  margin: auto;
+  border: none;
+  border-radius: 0.5rem;
+  padding: max(1rem, 2vw);
+  box-shadow: 0 1rem 2rem rgba(var(--text-color), 0.1);
+  -webkit-animation: popup 0.3s forwards;
+          animation: popup 0.3s forwards;
+  width: min(100%, 48rem);
+}
+#person_bio button {
+  padding: 0.5rem;
+  background-color: rgba(var(--text-color), 0.2);
+  border-radius: 5rem;
+  margin-bottom: 1.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
+}
+
+#person_bio_wrapper {
+  display: grid;
+  gap: 0.5rem 1.5rem;
+  grid-template-columns: min(16rem, 100%) 1fr;
+  grid-template-areas: "image name" "image title" "image bio";
+  grid-template-rows: auto auto 1fr;
+}
+
+#person__image {
+  grid-area: image;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+#person__name {
+  grid-area: name;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#person__title {
+  grid-area: title;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#person__bio {
+  grid-area: bio;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(var(--text-color), 0.8);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+@-webkit-keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @media screen and (max-width: 768px) {
   #poc_images .poc-wrapper:nth-of-type(5) {
     grid-area: 3/2/4/3;
+  }
+  #person_bio_wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "name" "title" "bio";
+  }
+  #person__image {
+    aspect-ratio: 1/1;
+    margin-bottom: 1.5rem;
   }
   .hide-on-small {
     display: none !important;
