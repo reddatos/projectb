@@ -600,10 +600,7 @@ section {
 }
 #project_team__components {
   display: flex;
-  flex-wrap: wrap;
-  & > * {
-    align-content: flex-start;
-  }
+  flex-direction: column;
   .milestone {
     display: grid;
     max-width: 42rem;
@@ -612,6 +609,7 @@ section {
     grid-template-areas: "label title" "label description";
     align-items: center;
     padding-right: 0;
+    justify-content: flex-start;
     &:not(:last-child) {
       padding-bottom: 3rem;
     }

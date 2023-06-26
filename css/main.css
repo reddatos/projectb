@@ -633,10 +633,7 @@ section:nth-of-type(2) {
 
 #project_team__components {
   display: flex;
-  flex-wrap: wrap;
-}
-#project_team__components > * {
-  align-content: flex-start;
+  flex-direction: column;
 }
 #project_team__components .milestone {
   display: grid;
@@ -646,6 +643,7 @@ section:nth-of-type(2) {
   grid-template-areas: "label title" "label description";
   align-items: center;
   padding-right: 0;
+  justify-content: flex-start;
 }
 #project_team__components .milestone:not(:last-child) {
   padding-bottom: 3rem;
