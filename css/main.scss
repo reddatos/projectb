@@ -228,63 +228,13 @@ article {
   // p {
   //   color: rgba(var(--foreground-color), 0.9);
   // }
-  padding-top: 5rem;
+  padding-top: 8rem;
   #title_text {
     position: relative;
     overflow: hidden;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     text-align: center;
     margin-bottom: 3rem;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(
-          45deg,
-          #ff989850 25%,
-          transparent 25%,
-          transparent 75%,
-          #ff989850 75%
-        ),
-        linear-gradient(
-          45deg,
-          #ff989850 25%,
-          transparent 25%,
-          transparent 75%,
-          #ff989850 75%
-        );
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-      z-index: -1;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(
-          45deg,
-          #fffffff8 25%,
-          transparent 25%,
-          transparent 75%,
-          #fffffff8 75%
-        ),
-        linear-gradient(
-          45deg,
-          #fffffff8 25%,
-          transparent 25%,
-          transparent 75%,
-          #fffffff8 75%
-        );
-      background-size: 20px 20px;
-      background-position: 0 0, 10px 10px;
-      z-index: -1;
-    }
   }
   h2 {
     position: relative;
