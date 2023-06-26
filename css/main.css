@@ -466,10 +466,6 @@ section:nth-of-type(2) {
   cursor: pointer;
 }
 
-.carousel:has(.project) {
-  padding-bottom: 3rem;
-}
-
 #projects_section h2 {
   margin-bottom: 3rem;
 }
@@ -803,8 +799,7 @@ section:nth-of-type(2) {
   gap: 1rem;
   margin-top: 3rem;
 }
-#partners a,
-#partners li:not(li:has(a)) {
+#partners .partner {
   display: flex;
   gap: 0.8rem;
   padding: 1rem;
@@ -814,8 +809,7 @@ section:nth-of-type(2) {
   background-color: rgba(var(--text-color), 0.06);
   border-radius: 0.5rem;
 }
-#partners a .icon,
-#partners li:not(li:has(a)) .icon {
+#partners .partner .icon {
   width: 2rem;
   height: 2rem;
 }

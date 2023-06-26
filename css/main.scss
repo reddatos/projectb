@@ -437,9 +437,6 @@ section {
   border-radius: 50%;
   cursor: pointer;
 }
-.carousel:has(.project) {
-  padding-bottom: 3rem;
-}
 #projects_section {
   h2 {
     margin-bottom: 3rem;
@@ -766,8 +763,7 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: 1rem;
   margin-top: 3rem;
-  a,
-  li:not(li:has(a)) {
+  .partner {
     display: flex;
     gap: 0.8rem;
     padding: 1rem;
