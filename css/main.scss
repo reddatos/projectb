@@ -1061,10 +1061,9 @@ section {
     }
   }
   .team-member {
-    transition: box-shadow 0.2s ease;
-    box-shadow: 0 0 0 0 rgba(var(--text-color), 1);
+    transition: background-color 0.2s ease;
     &:hover {
-      box-shadow: 0 0 0 0.1rem rgba(var(--text-color), 1);
+      background-color: rgba(var(--foreground-color), 1);
     }
   }
 }
