@@ -172,6 +172,9 @@ button,
     transform-origin: left bottom;
   }
 }
+.move-in {
+  opacity: 0;
+}
 article {
   & > * {
     padding: max(1rem, 2vw) var(--inline-padding);
